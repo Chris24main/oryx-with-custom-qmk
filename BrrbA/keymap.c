@@ -29,7 +29,7 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT,        KC_UP,          KC_RIGHT,       
-    KC_TAB,         KC_MEH,         KC_D,           KC_R,           KC_V,           QK_REP,                                          KC_TRANSPARENT, KC_Q,           KC_U,           KC_P,           KC_DOWN,        KC_TRANSPARENT, 
+    KC_TAB,         KC_MEH,         KC_D,           KC_R,           KC_V,           KC_F2,                                          KC_TRANSPARENT, KC_Q,           KC_U,           KC_P,           KC_DOWN,        KC_TRANSPARENT, 
     KC_LEFT_CTRL,   LT(5, KC_A),    KC_S,           LT(4, KC_H),    KC_T,           KC_G,                                           KC_F,           KC_N,           KC_E,           KC_O,           KC_I,           KC_DOT,         
     KC_LEFT_ALT,    KC_Z,           KC_X,           KC_M,           KC_C,           KC_W,                                           KC_Y,           KC_L,           KC_B,           KC_J,           KC_K,           KC_RIGHT_GUI,   
                                                     KC_LEFT_SHIFT,  KC_SPACE,                                       KC_ENTER,       MO(1)
@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_HOME,        KC_PAGE_UP,     KC_END,         
     KC_TRANSPARENT, KC_ESCAPE,      KC_BSLS,        DUAL_FUNC_0,    DUAL_FUNC_1,    KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_PGDN,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_BSPC,        KC_G,           KC_TRANSPARENT, KC_W,           KC_DELETE,                                      KC_0,           KC_4,           KC_5,           KC_6,           KC_MINUS,       KC_DOT,         
+    KC_TRANSPARENT, KC_BSPC,        KC_G,           KC_TRANSPARENT, KC_W,           QK_REP,                                         KC_0,           KC_4,           KC_5,           KC_6,           KC_MINUS,       KC_DOT,         
     KC_TRANSPARENT, LCTL(KC_BSPC),  KC_NUBS,        DUAL_FUNC_2,    KC_SCLN,        DUAL_FUNC_3,                                    DUAL_FUNC_4,    KC_1,           KC_2,           KC_3,           KC_SLASH,       KC_EQUAL,       
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 MO(2),          KC_TRANSPARENT
   ),
