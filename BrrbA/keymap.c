@@ -10,6 +10,11 @@ enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
 };
 
+enum custom_keycodes {
+    M_KEYBOARD = SAFE_RANGE,
+    M_UCHORD,
+    // Other custom keys...
+};
 
 
 enum tap_dance_codes {
@@ -88,6 +93,16 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+    // Additional definition to allow Alt-repeat
+
+uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
+    switch (keycode) {
+        case KC_K: return M_KEYBOARD;
+        case KC_U: return M_UCHORD;
+    }
+
+    return KC_TRNS;
+}
 
 extern rgb_config_t rgb_matrix_config;
 
@@ -270,6 +285,13 @@ tap_dance_action_t tap_dance_actions[] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+	  
+    // Inserted code here for alt-repeat
+  case M_KEYBOARD: SEND_STRING(/*k*/"eyboard"); break;
+  case M_UCHORD: SEND_STRING(/*u*/"gh"); break;
+  
+    // Resumed code from ZSA
+	
   case QK_MODS ... QK_MODS_MAX:
     // Mouse and consumer keys (volume, media) with modifiers work inconsistently across operating systems,
     // this makes sure that modifiers are always applied to the key that was pressed.
