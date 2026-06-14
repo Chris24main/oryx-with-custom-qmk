@@ -10,6 +10,8 @@ enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
   M_KEYBOARD,
   M_UCHORD,
+  M_ICHORD,
+  M_LCHORD,
   // Other custom keys
 };
 
@@ -290,9 +292,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
 
-    case M_UCHORD: 
+  case M_UCHORD: 
       if (record->event.pressed) {
         SEND_STRING("gh"); 
+      }
+      return false;
+	  
+   case M_ICHORD: 
+      if (record->event.pressed) {
+        SEND_STRING("gh"); 
+      }
+      return false;
+	  
+   case M_LCHORD: 
+      if (record->event.pressed) {
+        SEND_STRING("y"); 
       }
       return false;
   
