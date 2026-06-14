@@ -8,12 +8,9 @@
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
-};
-
-enum custom_keycodes {
-    M_KEYBOARD = SAFE_RANGE,
-    M_UCHORD,
-    // Other custom keys...
+  M_KEYBOARD,
+  M_UCHORD,
+  // Other custom keys
 };
 
 
@@ -287,8 +284,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
 	  
     // Inserted code here for alt-repeat
-  case M_KEYBOARD: SEND_STRING(/*k*/"eyboard"); break;
-  case M_UCHORD: SEND_STRING(/*u*/"gh"); break;
+  case M_KEYBOARD: 
+      if (record->event.pressed) {
+        SEND_STRING("eyboard"); 
+      }
+      return false;
+
+    case M_UCHORD: 
+      if (record->event.pressed) {
+        SEND_STRING("gh"); 
+      }
+      return false;
   
     // Resumed code from ZSA
 	
