@@ -12,6 +12,7 @@ enum custom_keycodes {
   M_UCHORD,
   M_ICHORD,
   M_LCHORD,
+  M_NCHORD,
   // Other custom keys
 };
 
@@ -98,6 +99,8 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
         case KC_K: return M_KEYBOARD;
         case KC_U: return M_UCHORD;
+		case KC_I: return M_ICHORD;
+		case KC_L: return M_LCHORD;
     }
 
     return KC_TRNS;
@@ -307,6 +310,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
    case M_LCHORD: 
       if (record->event.pressed) {
         SEND_STRING("y"); 
+      }
+      return false;
+	  
+   case M_NCHORD: 
+      if (record->event.pressed) {
+        SEND_STRING("g"); 
       }
       return false;
   
