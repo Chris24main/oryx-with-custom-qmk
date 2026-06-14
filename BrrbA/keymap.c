@@ -13,6 +13,8 @@ enum custom_keycodes {
   M_ICHORD,
   M_LCHORD,
   M_NCHORD,
+  M_OCHORD,
+  
   // Other custom keys
 };
 
@@ -101,6 +103,8 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
         case KC_U: return M_UCHORD;
 		case KC_I: return M_ICHORD;
 		case KC_L: return M_LCHORD;
+		case KC_N: return M_NCHORD;
+		case KC_O: return M_OCHORD;
     }
 
     return KC_TRNS;
@@ -316,6 +320,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
    case M_NCHORD: 
       if (record->event.pressed) {
         SEND_STRING("g"); 
+      }
+      return false;
+	  
+   case M_OCHORD: 
+      if (record->event.pressed) {
+        SEND_STRING("uld"); 
       }
       return false;
   
