@@ -190,7 +190,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // Inserted code here for alt-repeat
   case M_KEYBOARD: 
       if (record->event.pressed) {
-        SEND_STRING("eyboard"); 
+        SEND_STRING("ay"); 
       }
       return false;
 
