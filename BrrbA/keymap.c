@@ -8,20 +8,19 @@
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
-  ST_MACRO_0,
 };
 
 
 
-#define DUAL_FUNC_0 LT(14, KC_F2)
-#define DUAL_FUNC_1 LT(14, KC_V)
-#define DUAL_FUNC_2 LT(10, KC_F4)
-#define DUAL_FUNC_3 LT(14, KC_D)
-#define DUAL_FUNC_4 LT(3, KC_O)
-#define DUAL_FUNC_5 LT(10, KC_F6)
-#define DUAL_FUNC_6 LT(6, KC_F5)
-#define DUAL_FUNC_7 LT(13, KC_V)
-#define DUAL_FUNC_8 LT(15, KC_6)
+#define DUAL_FUNC_0 LT(12, KC_F11)
+#define DUAL_FUNC_1 LT(7, KC_G)
+#define DUAL_FUNC_2 LT(3, KC_6)
+#define DUAL_FUNC_3 LT(7, KC_S)
+#define DUAL_FUNC_4 LT(7, KC_Z)
+#define DUAL_FUNC_5 LT(8, KC_Y)
+#define DUAL_FUNC_6 LT(8, KC_F11)
+#define DUAL_FUNC_7 LT(11, KC_P)
+#define DUAL_FUNC_8 LT(15, KC_8)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -62,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [5] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, NAVIGATOR_INC_CPI,KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_WWW_REFRESH, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, NAVIGATOR_DEC_CPI,KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 LGUI(LCTL(KC_LEFT)),ST_MACRO_0,     LALT(LSFT(KC_2)),LALT(LSFT(KC_3)),LALT(LSFT(KC_4)),LGUI(LCTL(KC_RIGHT)),
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 LGUI(LCTL(KC_LEFT)),LALT(LSFT(KC_1)),LALT(LSFT(KC_2)),LALT(LSFT(KC_3)),LALT(LSFT(KC_4)),LGUI(LCTL(KC_RIGHT)),
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PSCR,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     KC_PC_COPY,     KC_PC_PASTE,                                    KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -176,11 +175,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         wait_ms(2);
         del_mods(QK_MODS_GET_MODS(keycode));
       }
-    }
-    break;
-    case ST_MACRO_0:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LALT(SS_LSFT(SS_TAP(X_KP_1))));
     }
     break;
 
